@@ -128,8 +128,8 @@ class CountdownApp:
         self.settings_menu.add_command(label="切换透明", command=self.toggle_transparent)
         self.settings_menu.add_command(label="调整窗口大小", command=self.adjust_window_size)
         self.settings_menu.add_command(label="调整字体大小", command=self.adjust_font_size)
-    #    self.settings_menu.add_checkbutton(label="开机自启动", command=self.toggle_auto_start,
-    #                                       variable=tk.BooleanVar(value=self.settings["auto_start"]))
+        self.settings_menu.add_checkbutton(label="关闭开机自启动", command=self.toggle_auto_start,
+                                           variable=tk.BooleanVar(value=self.settings["auto_start"]))
         self.settings_menu.add_command(label="关于软件", command=self.show_about)
         self.settings_menu.add_separator()
         self.settings_menu.add_command(label="退出", command=self.root.quit)
@@ -167,7 +167,7 @@ class CountdownApp:
     def show_about(self):
         about_info = """作者：小盆友真聪明
     B站UID：382061364
-    GitHub：https://github.com/ding567/Desktop-Countdown
+    GitHub：https://github.com/amagi678/Desktop-Countdown
 
     版本：1.0
     这是一个桌面倒计时悬浮窗程序"""
