@@ -35,8 +35,8 @@ class CountdownApp:
     def load_settings(self):
         # 默认设置
         self.settings = {
-            "target_date": "2025-07-03 00:00:00",
-            "custom_text": "距离目标时间还有",
+            "target_date": "2026-01-01 00:00:00",
+            "custom_text": "距离2026年1月1日还有",
             "position": (100, 100),
             "size": (200, 100),
             "bg_color": "#333333",
@@ -128,8 +128,9 @@ class CountdownApp:
         self.settings_menu.add_command(label="切换透明", command=self.toggle_transparent)
         self.settings_menu.add_command(label="调整窗口大小", command=self.adjust_window_size)
         self.settings_menu.add_command(label="调整字体大小", command=self.adjust_font_size)
-        self.settings_menu.add_checkbutton(label="开机自启动", command=self.toggle_auto_start,
-                                           variable=tk.BooleanVar(value=self.settings["auto_start"]))
+    #    self.settings_menu.add_checkbutton(label="开机自启动", command=self.toggle_auto_start,
+    #                                       variable=tk.BooleanVar(value=self.settings["auto_start"]))
+        self.settings_menu.add_command(label="关于软件", command=self.show_about)
         self.settings_menu.add_separator()
         self.settings_menu.add_command(label="退出", command=self.root.quit)
 
@@ -162,6 +163,15 @@ class CountdownApp:
         self.settings["auto_start"] = not self.settings["auto_start"]
         self.update_auto_start()
         self.save_settings()
+
+    def show_about(self):
+        about_info = """作者：小盆友真聪明
+    B站UID：382061364
+    GitHub：https://github.com/ding567/Desktop-Countdown
+
+    版本：1.0
+    这是一个桌面倒计时悬浮窗程序"""
+        messagebox.showinfo("关于软件", about_info)
 
     def update_auto_start(self):
         """更新开机自启动设置"""
